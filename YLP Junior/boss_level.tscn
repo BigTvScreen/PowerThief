@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxpv22uy8ol7m"]
+
+[ext_resource type="Texture2D" uid="uid://bjax70rcixr4y" path="res://horizon-background.png" id="1_tmmvw"]
+[ext_resource type="Texture2D" uid="uid://biarj2tu7olwh" path="res://icon.svg" id="2_sf4vu"]
+[ext_resource type="Texture2D" uid="uid://bn6nsa284wsd6" path="res://grass-texture02.png" id="3_b2b4i"]
+[ext_resource type="PackedScene" uid="uid://ddeq6tgcitydk" path="res://player.tscn" id="3_lobp2"]
+[ext_resource type="Texture2D" uid="uid://dghacwy7wdlrb" path="res://gui01-static.png" id="5_4qcs5"]
+[ext_resource type="PackedScene" uid="uid://8hlvybpcadv4" path="res://waterling.tscn" id="6_4cw5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rtag"]
+size = Vector2(88, 14.4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lm43k"]
+texture = ExtResource("2_sf4vu")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_818kn"]
+physics_layer_0/collision_layer = 255
+sources/0 = SubResource("TileSetAtlasSource_lm43k")
+
+[node name="Boss_Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 8)
+scale = Vector2(10, 10)
+texture = ExtResource("1_tmmvw")
+
+[node name="All Land" type="Node" parent="."]
+
+[node name="Platform" type="StaticBody2D" parent="All Land"]
+position = Vector2(472, 424)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Platform2" type="StaticBody2D" parent="All Land"]
+position = Vector2(-480, 424)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform2"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform2"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Platform3" type="StaticBody2D" parent="All Land"]
+position = Vector2(-672, -41)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform3"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform3"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Platform4" type="StaticBody2D" parent="All Land"]
+position = Vector2(664, -48)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform4"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform4"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Platform5" type="StaticBody2D" parent="All Land"]
+position = Vector2(-7.27596e-12, 104)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform5"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform5"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Platform6" type="StaticBody2D" parent="All Land"]
+position = Vector2(3.8147e-06, -304)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="All Land/Platform6"]
+texture_repeat = 3
+position = Vector2(1.19209e-07, 3.57628e-07)
+texture = ExtResource("3_b2b4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="All Land/Platform6"]
+position = Vector2(0, 1.39999)
+shape = SubResource("RectangleShape2D_4rtag")
+
+[node name="Player" parent="." instance=ExtResource("3_lobp2")]
+position = Vector2(-120, 4)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_818kn")
+format = 2
+
+[node name="Gui01-static" type="Sprite2D" parent="."]
+position = Vector2(-686, -421)
+scale = Vector2(7, 7)
+texture = ExtResource("5_4qcs5")
+
+[node name="Waterling" parent="." instance=ExtResource("6_4cw5m")]
+position = Vector2(800, 320)
+
+[node name="Waterling2" parent="." instance=ExtResource("6_4cw5m")]
+position = Vector2(-264, -208)

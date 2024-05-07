@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm6ib5lxo5bx6"]
+
+[ext_resource type="Script" path="res://Fireling.gd" id="1_6csnm"]
+[ext_resource type="Texture2D" uid="uid://biarj2tu7olwh" path="res://icon.svg" id="2_q4raf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ra08"]
+radius = 64.0
+
+[node name="Fireling" type="Node2D"]
+scale = Vector2(0.75, 1)
+script = ExtResource("1_6csnm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q4raf")
+
+[node name="E" type="Area2D" parent="."]
+
+[node name="F" type="CollisionShape2D" parent="E"]
+shape = SubResource("CircleShape2D_4ra08")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-74.6667, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

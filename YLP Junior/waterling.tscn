@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://8hlvybpcadv4"]
+
+[ext_resource type="Script" path="res://Waterling.gd" id="1_jh4yf"]
+[ext_resource type="Texture2D" uid="uid://cmf3jhdvc5oqv" path="res://flying-fish01.png" id="2_70vy7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lyyd"]
+radius = 64.0
+
+[node name="Waterling" type="Node2D"]
+script = ExtResource("1_jh4yf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(9, 9)
+texture = ExtResource("2_70vy7")
+
+[node name="E" type="Area2D" parent="."]
+scale = Vector2(1.5, 0.5)
+
+[node name="W" type="CollisionShape2D" parent="E"]
+shape = SubResource("CircleShape2D_0lyyd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://be4yf4yd34ypr"]
+
+[ext_resource type="PackedScene" uid="uid://ddeq6tgcitydk" path="res://player.tscn" id="1_rqdyv"]
+[ext_resource type="Texture2D" uid="uid://biarj2tu7olwh" path="res://icon.svg" id="2_osg38"]
+[ext_resource type="PackedScene" uid="uid://cm6ib5lxo5bx6" path="res://fireling.tscn" id="3_ug7f3"]
+[ext_resource type="PackedScene" uid="uid://8hlvybpcadv4" path="res://waterling.tscn" id="4_rogw5"]
+[ext_resource type="PackedScene" uid="uid://bdefjnv0uk7ne" path="res://boss_1.tscn" id="5_tojov"]
+[ext_resource type="PackedScene" uid="uid://rj8rn1b8rqtf" path="res://boune_gi.tscn" id="6_l2by5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h5na"]
+
+[node name="Test World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_rqdyv")]
+position = Vector2(48, -482)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-448, 488)
+scale = Vector2(45, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1.19209e-07, 3.57628e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_osg38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5h5na")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(448, 488)
+scale = Vector2(4500, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(1.19209e-07, 3.57628e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_osg38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_5h5na")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-4, 20)
+scale = Vector2(200, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(1.19209e-07, 3.57628e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_osg38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_5h5na")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(1688, -208)
+scale = Vector2(200, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(1.19209e-07, 3.57628e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_osg38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_5h5na")
+
+[node name="Fireling" parent="." groups=["Enemies"] instance=ExtResource("3_ug7f3")]
+position = Vector2(760, 384)
+
+[node name="Fireling2" parent="." groups=["Enemies"] instance=ExtResource("3_ug7f3")]
+position = Vector2(-856, 376)
+
+[node name="Waterling" parent="." instance=ExtResource("4_rogw5")]
+position = Vector2(-752, -200)
+
+[node name="Boss1" parent="." instance=ExtResource("5_tojov")]
+position = Vector2(2024, 104)
+
+[node name="BouneGi" parent="." instance=ExtResource("6_l2by5")]
+position = Vector2(632, -296)

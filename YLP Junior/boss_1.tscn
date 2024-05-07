@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdefjnv0uk7ne"]
+
+[ext_resource type="Script" path="res://Boss1.gd" id="1_oyhu0"]
+[ext_resource type="Texture2D" uid="uid://biarj2tu7olwh" path="res://icon.svg" id="2_6nef1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcwi7"]
+size = Vector2(368, 624)
+
+[node name="Boss1" type="Node2D"]
+script = ExtResource("1_oyhu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(3, 5)
+texture = ExtResource("2_6nef1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -192)
+rotation = -3.14159
+scale = Vector2(1, 0.75674)
+skew = -0.704816
+texture = ExtResource("2_6nef1")
+
+[node name="E" type="Area2D" parent="."]
+
+[node name="B" type="CollisionShape2D" parent="E"]
+shape = SubResource("RectangleShape2D_gcwi7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 1.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

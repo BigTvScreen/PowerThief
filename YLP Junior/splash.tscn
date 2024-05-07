@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7pt7ee0tm2u5"]
+
+[ext_resource type="Texture2D" uid="uid://b2u0fu6smbogo" path="res://Spalsh.png" id="1_ppgvd"]
+[ext_resource type="Script" path="res://splash.gd" id="2_ji7qt"]
+
+[node name="Splash" type="Sprite2D"]
+texture = ExtResource("1_ppgvd")
+script = ExtResource("2_ji7qt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
